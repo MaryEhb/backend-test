@@ -1,0 +1,13 @@
+MongoDB Query to Retrieve Products by Category (Electronics):
+
+db.products.find({ category: "Electronics" })
+  .sort({ price: -1 })
+  .skip(0);
+  .limit(5);
+
+- skip value will change depending on the page
+
+To optimize the query:
+We can add an index on the category and price fields.
+This will speed up filtering by category and sorting by price, especially as the dataset grows.
+Indexes help MongoDB find and sort documents much faster than scanning the entire collection.
