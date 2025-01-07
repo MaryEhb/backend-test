@@ -1,5 +1,5 @@
 // Middleware to check if the use is and admin
-export const adminMiddleware = (req, res, next) => {
+const adminMiddleware = (req, res, next) => {
     try {
 
         if (req.user.role !== "admin") {
@@ -11,3 +11,5 @@ export const adminMiddleware = (req, res, next) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 };
+
+export default adminMiddleware;

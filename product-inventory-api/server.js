@@ -2,6 +2,7 @@ import express from "express";
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/authRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 import connectToDatabase from "./config/db.js";
 import dotenv from 'dotenv';
 
@@ -26,6 +27,7 @@ app.use(cors(corsOptions));
 
 // Routes
 app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server running on port ${process.env.PORT || 3000}`);
