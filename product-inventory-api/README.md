@@ -11,8 +11,8 @@ To get the project running on your local machine, please follow the steps below.
 First, fork and clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/backend-test.git
-cd backend-test
+git clone https://github.com/MaryEhb/backend-test.git
+cd backend-test/product-inventory-api
 ```
 
 ### 2. Install Dependencies
