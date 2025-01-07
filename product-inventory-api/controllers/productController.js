@@ -6,8 +6,20 @@ class ProductController {
     // Get array of all products
     static getProducts = async (req, res) => {
         try {
-            const products = await Product.find();
-            return res.status(200).json({ products });
+            const page = parseInt(req.query.page) || 1;
+            const limit = parseInt(req.query.limit) || 10;
+            const skip = (page - 1) * limit;
+
+            const products = await Product.find().skip(skip).limit(limit);
+            const productsCount = await Product.countDocuments();
+
+            return res.status(200).json({ 
+                products,
+                productsCount,
+                currentPage: page,
+                totalPages: Math.ceil(productsCount / limit) 
+            });
+
         } catch (error) {
             console.error(error);
             return res.status(500).json({ message: "Failed to fetch products" });
